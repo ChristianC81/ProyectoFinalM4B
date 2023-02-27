@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_compras">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:backgroundTint="#00FFFFFF"
+        tools:context=".Compras">
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="413dp"
+            android:layout_height="39dp"
+            android:layout_weight="0.9"
+            android:background="#B6B0A4"
+            android:backgroundTint="#B6B0A4"
+            android:orientation="horizontal"
+            android:outlineAmbientShadowColor="#B6B0A4"
+            android:outlineSpotShadowColor="#B6B0A4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="36dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                android:contentDescription="@string/todo"
+                android:outlineAmbientShadowColor="#B6B0A4"
+                android:outlineSpotShadowColor="#B6B0A4"
+                app:srcCompat="@drawable/whatsapp_image_2023_02_10_at_09_57_52_removebg_preview" />
+
+            <Space
+                android:layout_width="283dp"
+                android:layout_height="26dp"
+                android:layout_weight="@dimen/material_emphasis_high_type"
+                android:outlineAmbientShadowColor="#B6B0A4"
+                android:outlineSpotShadowColor="#B6B0A4" />
+
+            <ImageButton
+                android:id="@+id/imageButtonBuscar4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                android:backgroundTint="#B5AFA3"
+                android:contentDescription="@string/tod"
+                app:srcCompat="?android:attr/actionModeWebSearchDrawable"
+                app:tint="#070707"
+                tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="413dp"
+            android:layout_height="39dp"
+            android:background="#B5AFA3"
+            android:backgroundTint="#B5AFA3"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="1.0">
+
+            <ImageButton
+                android:id="@+id/imageButtonInicio4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="#B4AEA2"
+                android:contentDescription="@string/home"
+                app:srcCompat="@drawable/iconfinder_contat_us_33home_4211870_115065"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/imageButtonCompra4"
+                android:layout_width="58dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="#B4AEA2"
+                android:contentDescription="@string/compras"
+                app:srcCompat="@drawable/shoppingcart_80945"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/imageButtonPerfil4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#B5AFA3"
+                android:contentDescription="@string/to"
+                app:srcCompat="@drawable/ceo_icon_icons_com_76995"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listViewProductos"
+            android:layout_width="404dp"
+            android:layout_height="509dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/view2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

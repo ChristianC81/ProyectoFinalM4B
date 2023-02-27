@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".edit_user">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#3F51B5"
+        tools:context=".Edit_user"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-38dp">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F1EAEA"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageFotoUser"
+            android:layout_width="110dp"
+            android:layout_height="89dp"
+            android:contentDescription="@string/odo"
+            android:src="@android:drawable/ic_menu_gallery"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.203"
+            app:srcCompat="@drawable/ceo_icon_icons_com_76995" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="413dp"
+            android:layout_height="39dp"
+            android:layout_weight="0.9"
+            android:background="#B6B0A4"
+            android:backgroundTint="#B6B0A4"
+            android:orientation="horizontal"
+            android:outlineAmbientShadowColor="#B6B0A4"
+            android:outlineSpotShadowColor="#B6B0A4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="36dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                android:contentDescription="@string/todo"
+                android:outlineAmbientShadowColor="#B6B0A4"
+                android:outlineSpotShadowColor="#B6B0A4"
+                app:srcCompat="@drawable/whatsapp_image_2023_02_10_at_09_57_52_removebg_preview" />
+
+            <Space
+                android:layout_width="262dp"
+                android:layout_height="26dp"
+                android:layout_weight="@dimen/material_emphasis_high_type"
+                android:outlineAmbientShadowColor="#B6B0A4"
+                android:outlineSpotShadowColor="#B6B0A4" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/editar_perfi"
+            android:textColor="@color/purple_700"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.091"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.106" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="261dp"
+            android:layout_height="393dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintHorizontal_bias="0.893"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view"
+            app:layout_constraintVertical_bias="0.391">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="383dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="262dp"
+                    android:layout_height="20dp"
+                    android:text="@string/nombre"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/editNombre"
+                    android:layout_width="262dp"
+                    android:layout_height="48dp"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/name"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/material_dynamic_neutral10"
+                    android:textSize="12sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="262dp"
+                    android:layout_height="20dp"
+                    android:text="@string/direcci_"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/editDirección"
+                    android:layout_width="262dp"
+                    android:layout_height="48dp"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/direcci_n"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/material_dynamic_neutral10"
+                    android:textSize="12sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="262dp"
+                    android:layout_height="20dp"
+                    android:text="@string/tel_fono"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/editTelefono"
+                    android:layout_width="262dp"
+                    android:layout_height="48dp"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/_0000000"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/material_dynamic_neutral10"
+                    android:textSize="12sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="262dp"
+                    android:layout_height="20dp"
+                    android:text="@string/correo"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/editCorreo"
+                    android:layout_width="262dp"
+                    android:layout_height="48dp"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/example_gmail_com"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/material_dynamic_neutral10"
+                    android:textSize="12sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="262dp"
+                    android:layout_height="20dp"
+                    android:text="@string/contrase_a"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/editPassword"
+                    android:layout_width="262dp"
+                    android:layout_height="48dp"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/pasword"
+                    android:inputType="textPassword"
+                    android:textColor="@color/material_dynamic_neutral10"
+                    android:textColorHint="#757575"
+                    android:textSize="12sp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="330dp"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.93">
+
+            <Button
+                android:id="@+id/BtnGuardarDatos"
+                android:layout_width="117dp"
+                android:layout_height="39dp"
+                android:text="@string/guardar"
+                android:textColor="#050505"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="23dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/BtnCancelar"
+                android:layout_width="117dp"
+                android:layout_height="39dp"
+                android:backgroundTint="#EFA632"
+                android:text="@string/cancelar"
+                android:textColor="#302207"
+                tools:ignore="TouchTargetSizeCheck" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
