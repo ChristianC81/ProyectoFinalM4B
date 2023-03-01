@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
-            android:id="@+id/view"
+            android:id="@+id/view3"
             android:layout_width="411dp"
             android:layout_height="43dp"
             android:background="#B7B1A5"
@@ -47,7 +47,7 @@
 
         <ImageButton
             android:id="@+id/imageButtonBuscar"
-            android:layout_width="46dp"
+            android:layout_width="48dp"
             android:layout_height="43dp"
             android:background="#00FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -109,6 +109,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/iconfinder_contat_us_33home_4211870_115065" />
+
+        <ListView
+            android:id="@+id/listProductos"
+            android:layout_width="424dp"
+            android:layout_height="659dp"
+            app:layout_constraintBottom_toTopOf="@+id/view2"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
