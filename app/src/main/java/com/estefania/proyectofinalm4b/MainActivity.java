@@ -110,7 +110,10 @@ public class MainActivity extends AppCompatActivity {
                 publicacion.setProd_tipo(jsonObject.getString("prod_tipo"));//el nombre es como viene del json
                 publicacion.setProd_descripcion(jsonObject.getString("prod_descripcion"));//el nombre es como viene del json
                 publicacion.setProd_preciounitario(jsonObject.getDouble("prod_preciounitario"));//el nombre es como viene del json
-                datos.add(" Nombre:    "+publicacion.getProd_nombre()+" \n Tipo:  "+publicacion.getProd_tipo()+" \n Descripcion:           "+publicacion.getProd_descripcion()+" \n Precio:           "+publicacion.getProd_preciounitario());
+                 datos.add("Nombre:           "+publicacion.getProd_nombre()
+                        +"\nTipo:             "+publicacion.getProd_tipo()
+                        +"\nDescripcion:      "+publicacion.getProd_descripcion()
+                        +"\nPrecio:           "+publicacion.getProd_preciounitario());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -118,4 +121,6 @@ public class MainActivity extends AppCompatActivity {
         }
         arrayAdapter.notifyDataSetChanged();
     }
+
+
 }
