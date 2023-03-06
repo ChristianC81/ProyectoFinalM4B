@@ -29,7 +29,7 @@
             app:srcCompat="@drawable/logofinal_jpg" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName9"
+            android:id="@+id/txtcontrasena"
             android:layout_width="372dp"
             android:layout_height="74dp"
             android:layout_marginStart="39dp"
@@ -44,7 +44,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName10"
+            android:id="@+id/txtcorreo"
             android:layout_width="369dp"
             android:layout_height="86dp"
             android:layout_marginStart="28dp"
@@ -53,7 +53,7 @@
             android:ems="10"
             android:hint="Correo"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName9"
+            app:layout_constraintBottom_toTopOf="@+id/txtcontrasena"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

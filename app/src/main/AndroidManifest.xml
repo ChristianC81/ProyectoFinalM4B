@@ -15,7 +15,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".Principal"
+            android:name=".Inicio_Sesion"
             android:exported="false" />
         <activity
             android:name=".activity_compras"
@@ -30,7 +30,7 @@
             android:name=".registro_main"
             android:exported="false" />
         <activity
-            android:name=".Inicio_Sesion"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".Perfil"
@@ -39,7 +39,7 @@
             android:name=".Busqueda"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Principal"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
