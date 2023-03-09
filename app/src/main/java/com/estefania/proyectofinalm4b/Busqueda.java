@@ -39,7 +39,7 @@ public class Busqueda extends AppCompatActivity {
      RecyclerView listaproductos;
     List<producto> productos;
     Adapter adapter;
-    String JSON_URL = "http://10.0.2.2:8080/api/productos" ;
+    String JSON_URL = "http://10.0.2.2:8080/api/producto" ;
 
 
 
@@ -48,28 +48,15 @@ public class Busqueda extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busqueda);
-        listaproductos = findViewById(R.id.listprod);
+        listaproductos =findViewById(R.id.listprod2);
         productos=new ArrayList<>();
         obtenerProductos();
-       /* listaproductos.setHasFixedSize(true);*/
+        listaproductos.setHasFixedSize(true);
         listaproductos.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
         adapter= new Adapter(getApplicationContext(), productos );
         listaproductos.setAdapter(adapter);
 
-
-
-
         /*listaproductos.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));*/
-
-
-
-
-
-
-
-
-
-
 
 
         //Jason
@@ -118,7 +105,7 @@ public class Busqueda extends AppCompatActivity {
                         JSONObject productoObject = response.getJSONObject(i) ;
                         producto productos1 = new producto() ;
                         productos1.setProd_nombre(productoObject.getString("prod_nombre").toString());
-                       productos1.setProd_preciounitario(Double.parseDouble(productoObject.getString("prod_preciounitario")));
+                        productos1.setProd_preciounitario(productoObject.getDouble("prod_preciounitario"));
                         productos.add(productos1);
 
                     } catch (JSONException e) {

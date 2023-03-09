@@ -19,7 +19,7 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private Context contexto;
-
+    String JSON_URL = "http://192.168.18.52:8080/api/productos" ;
     List<producto> productos;
     LayoutInflater inflater;
     public Adapter(Context contexto, List<producto> productos) {
@@ -33,20 +33,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        int a ;
-
-        if(productos != null && !productos.isEmpty()) {
-
-            a = productos.size();
+        if (productos == null) {
+            return 0;
+        } else {
+            return productos.size();
         }
-        else {
-
-            a = 0;
-
-        }
-
-        return a;
-
     }
 
 
@@ -55,6 +46,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
        View view = inflater. from(parent.getContext()).inflate(R.layout.activity_lista_prod, parent, false);
         return new ViewHolder(view);
+
 
 
     }
