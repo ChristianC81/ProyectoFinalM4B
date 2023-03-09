@@ -32,17 +32,12 @@ import java.util.List;
 public class Busqueda extends AppCompatActivity {
 
     //DECLARAR LISTVIEW DE PRODUCTOS
-
-
     JsonArrayRequest request ;
      RequestQueue requestQueue ;
      RecyclerView listaproductos;
     List<producto> productos;
     Adapter adapter;
-    String JSON_URL = "http://10.0.2.2:8080/api/productos" ;
-
-
-
+    String JSON_URL = "http://10.0.2.2:8080/api/producto" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,21 +51,7 @@ public class Busqueda extends AppCompatActivity {
         adapter= new Adapter(getApplicationContext(), productos );
         listaproductos.setAdapter(adapter);
 
-
-
-
         /*listaproductos.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));*/
-
-
-
-
-
-
-
-
-
-
-
 
         //Jason
         ImageButton info = findViewById(R.id.imageButtonInicio2);
@@ -99,53 +80,32 @@ public class Busqueda extends AppCompatActivity {
                 startActivityForResult(intent, 0);
             }
         });
-
     }
 
     public void obtenerProductos(){
         requestQueue = Volley.newRequestQueue(Busqueda.this);
-
         request = new JsonArrayRequest( Request.Method.GET,JSON_URL,null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-
-
-
                 for (int i = 0 ; i < response.length(); i++ ) {
-
-
                     try {
                         JSONObject productoObject = response.getJSONObject(i) ;
                         producto productos1 = new producto() ;
                         productos1.setProd_nombre(productoObject.getString("prod_nombre").toString());
                        productos1.setProd_preciounitario(Double.parseDouble(productoObject.getString("prod_preciounitario")));
                         productos.add(productos1);
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
-
                 }
-
                 adapter.notifyDataSetChanged();
-
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("tag","onErrorResponse;" +error.getMessage());
-
             }
         });
-
         requestQueue.add(request) ;
-
-
     }
-
-
-
-
 }

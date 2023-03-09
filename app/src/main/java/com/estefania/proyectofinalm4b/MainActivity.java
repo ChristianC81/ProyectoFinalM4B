@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void contenerDatos(){
-        String url= "http://10.0.2.2:8080/api/productos";
+        String url= "http://10.0.2.2:8080/api/producto";
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url,
                 new Response.Listener<JSONArray>() {
                     @Override

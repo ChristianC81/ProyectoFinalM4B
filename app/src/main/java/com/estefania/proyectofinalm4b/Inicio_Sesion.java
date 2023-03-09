@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -31,14 +32,16 @@ public class Inicio_Sesion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
-
+        obtenerDatos();
         Button info = findViewById(R.id.botoniniciarsesion);
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validacion();
+
+                verificar();
                 Intent intent = new Intent (v.getContext(), MainActivity.class);
                 startActivityForResult(intent, 0);
+
             }
         });
 
@@ -56,53 +59,67 @@ public class Inicio_Sesion extends AppCompatActivity {
     private void manejaJson(JSONArray jsonArray){
         for (int i=0; i<jsonArray.length();i++){
             JSONObject jsonObject=null;
-            Cliente cliente=new Cliente();
-
+            Cliente publicacion=new Cliente();
             try {
                 jsonObject=jsonArray.getJSONObject(i);
-
-                cliente.setCli_correo(jsonObject.getString("cli_correo"));
-                cliente.setCli_clave(jsonObject.getString("cli_clave"));
-                datos.add(cliente);
-
+                publicacion.setCli_clave(jsonObject.getString("cli_clave"));
+                publicacion.setCli_correo(jsonObject.getString("cli_correo"));
+                datos.add(publicacion);
             } catch (JSONException e) {
-                e.printStackTrace();
+                throw new RuntimeException(e);
             }
         }
         arrayAdapter.notifyDataSetChanged();
     }
 
-    private void obtener_datos(){
-        String url= "http://10.0.2.2:8080/api/CLIENTES";
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        //obtenemos el json de respuesta
-                        manejaJson(response);
-                    }
-                }, new Response.ErrorListener() {
+    private void obtenerDatos(){
+        String url="http://10.0.2.2:8080/api/cliente";
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                //obtengo el json respuesta
+                //MANEJAMOS EL JSON
+                manejaJson(response);
+            }
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                //manejamos el error
-                Toast.makeText(getApplicationContext(),error.getMessage(), Toast.LENGTH_LONG).show();
+                //obtengo un error si es que se da
+                Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
         Volley.newRequestQueue(this).add(jsonArrayRequest);
     }
 
-    public void validacion(){
+    public void verificar(){
+        Integer non=1;
+        EditText co = findViewById(R.id.txtcorreo);
+        EditText cla=findViewById(R.id.txtclave);
 
-        obtener_datos();
+        String correox=co.getText().toString();
+        String clavex=cla.getText().toString();
+        for (int x=0;x< datos.size();x++){
+            if (datos.get(x).getCli_correo().equals(correox)&&datos.get(x).getCli_clave().equals(clavex)){
 
-        String correo_ingresado=findViewById(R.id.txtcorreo).toString();
-        String clave_ingresado=findViewById(R.id.txtcontrasena).toString();
-
-        for (int i=0; i<datos.size();i++){
-            if (datos.get(i).getCli_clave().equals(clave_ingresado)&&datos.get(i).getCli_correo().equals(correo_ingresado)){
-                Toast.makeText(getApplicationContext(),"ENCONTRADO CON EXITO",Toast.LENGTH_SHORT).show();
+                non=0;
             }
         }
+        if (non==1){
+            Toast toast1 =
+                    Toast.makeText(getApplicationContext(),
+                            "NO ENCONTRADO", Toast.LENGTH_SHORT);
+
+            toast1.show();
+        }else {
+            Toast toast1 =
+                    Toast.makeText(getApplicationContext(),
+                            "ENCONTRADO", Toast.LENGTH_SHORT);
+
+
+            toast1.show();
+
+        }
+
     }
 
 }
