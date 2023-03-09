@@ -106,7 +106,7 @@
         app:srcCompat="@drawable/iconfinder_contat_us_33home_4211870_115065" />
 
     <SearchView
-        android:id="@+id/searchView2"
+        android:id="@+id/searchView"
         android:layout_width="336dp"
         android:layout_height="38dp"
         android:background="#B2DBD8D2"
@@ -118,14 +118,16 @@
         app:layout_constraintVertical_bias="0.137" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listprod2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layoutManager="LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/view8"
+        android:id="@+id/listprod"
+        android:layout_width="392dp"
+        android:layout_height="504dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="141dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView2"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
         app:layout_constraintVertical_bias="0.45" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

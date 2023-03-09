@@ -29,7 +29,7 @@
             app:srcCompat="@drawable/logofinal_jpg" />
 
         <EditText
-            android:id="@+id/txtcontrasena"
+            android:id="@+id/txtclave"
             android:layout_width="372dp"
             android:layout_height="74dp"
             android:layout_marginStart="39dp"
@@ -53,7 +53,7 @@
             android:ems="10"
             android:hint="Correo"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/txtcontrasena"
+            app:layout_constraintBottom_toTopOf="@+id/txtclave"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
