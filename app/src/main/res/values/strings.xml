@@ -29,4 +29,7 @@
     <string name="agregar_al_carrito">Agregar al Carrito</string>
     <string name="t">TODO</string>
     <string name="odo">TODO</string>
+    <string name="Tipo">Tipo</string>
+    <string name="Codigo">Codigo</string>
+    <string name="Stock">Stock</string>
 </resources>

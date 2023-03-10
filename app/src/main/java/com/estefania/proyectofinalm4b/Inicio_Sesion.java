@@ -32,13 +32,10 @@ public class Inicio_Sesion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
-        obtenerDatos();
         Button info = findViewById(R.id.botoniniciarsesion);
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                verificar();
                 Intent intent = new Intent (v.getContext(), MainActivity.class);
                 startActivityForResult(intent, 0);
 
