@@ -2,10 +2,10 @@ package com.estefania.proyectofinalm4b;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -16,21 +16,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.estefania.proyectofinalm4b.clases.producto;
 
-import org.w3c.dom.Text;
-
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
-public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
+public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private Context contexto;
-
+    String JSON_URL = "http://192.168.18.52:8080/api/productos" ;
     List<producto> productos;
     LayoutInflater inflater;
+    List<producto> listaOriginal;
 
     public Adapter(Context contexto, List<producto> productos) {
         this.productos = productos;
+        this.listaOriginal = new ArrayList<>();
+        listaOriginal.addAll(productos);
         this.contexto = contexto;
+
     }
 
     @Override
@@ -44,6 +48,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
         }
         return a;
     }
+
 
     @NonNull
     @Override
@@ -69,28 +74,27 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             contexto = itemView.getContext();
-            codigo = (TextView) itemView.findViewById(R.id.txtextra);
+            codigo = (TextView) itemView.findViewById(R.id.txtprod_nombre);
             nombre = (TextView) itemView.findViewById(R.id.txtprod_nombre);
             tipo = (TextView) itemView.findViewById(R.id.txtTipo);
-            descripcion = (TextView) itemView.findViewById(R.id.txtDescripcion);
+            descripcion = (TextView) itemView.findViewById(R.id.txtTipo);
             stock = (TextView) itemView.findViewById(R.id.txtStock);
             precio = (TextView) itemView.findViewById(R.id.txtprod_preciounitario);
             /*nombre= itemView.findViewById(R.id.txtprod_nombre);*/
 
             btnimg2 = (ImageButton) itemView.findViewById(R.id.imgbtn2);
-            detalle = (ImageButton) itemView.findViewById(R.id.imgbtndesc);
+            detalle = (ImageButton) itemView.findViewById(R.id.btnimgDetalle);
 
         }
 
-        void setOnClickListeners(){
+        void setOnClickListeners() {
             detalle.setOnClickListener(this);
             btnimg2.setOnClickListener(this);
         }
-
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                case R.id.imgbtndesc:
+                case R.id.btnimgDetalle:
                     Intent intent1 = new Intent (contexto, detalle_producto.class);
                     intent1.putExtra("nombre", nombre.getText());
                     intent1.putExtra("precio", precio.getText());
@@ -115,8 +119,40 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
         /*
         holder.tipo.setText(productos.get(position).getProd_nombre());
         holder.codigo.setText(productos.get(position).getProd_nombre());*/
-        holder.descripcion.setText(productos.get(position).getProd_descripcion());
+        holder.nombre.setText(productos.get(position).getProd_descripcion());
         holder.nombre.setText(productos.get(position).getProd_nombre());
         holder.precio.setText(String.valueOf(productos.get(position).getProd_preciounitario()));
+
+       /* double precioDouble = Double.parseDouble(productos.get(position).getProd_preciounitario());
+        holder.precio.setText(String.valueOf(precioDouble));*/
+        /*notifyDataSetChanged();*/
     }
+
+    //METODO PARA BUSCAR
+    public void filter(final String txtbuscar) {
+        if (txtbuscar.length() == 0) {
+            productos.clear();
+            productos.addAll(listaOriginal);
+        }
+        else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+
+                List<producto> collect = productos.stream()
+                        .filter(i -> i.getProd_nombre().toLowerCase().contains(txtbuscar.toLowerCase()))
+                        .collect(Collectors.toList());
+                productos.clear();
+                productos.addAll(collect);
+            }
+            else {
+                productos.clear();
+                for (producto i : listaOriginal) {
+                    if (i.getProd_nombre().toLowerCase().contains(txtbuscar)) {
+                        productos.add(i);
+                    }
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
+
 }

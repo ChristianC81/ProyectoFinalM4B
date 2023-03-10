@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -49,6 +50,15 @@ public class detalle_producto extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (v.getContext(), Inicio_Sesion.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        Button infor6 = findViewById(R.id.btnAgregarCarro);
+        infor6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (v.getContext(), activity_compras.class);
                 startActivityForResult(intent, 0);
             }
         });
