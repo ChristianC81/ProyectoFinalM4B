@@ -96,7 +96,7 @@ public class Inicio_Sesion extends AppCompatActivity {
         obtener_datos();
 
         String correo_ingresado=findViewById(R.id.txtcorreo).toString();
-        String clave_ingresado=findViewById(R.id.txtcontrasena).toString();
+        String clave_ingresado=findViewById(R.id.txtclave).toString();
 
         for (int i=0; i<datos.size();i++){
             if (datos.get(i).getCli_clave().equals(clave_ingresado)&&datos.get(i).getCli_correo().equals(correo_ingresado)){

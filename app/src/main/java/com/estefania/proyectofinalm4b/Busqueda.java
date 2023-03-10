@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -21,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.estefania.proyectofinalm4b.clases.producto;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,7 +31,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Busqueda extends AppCompatActivity {
+public class Busqueda extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
     //DECLARAR LISTVIEW DE PRODUCTOS
 
@@ -38,8 +40,12 @@ public class Busqueda extends AppCompatActivity {
      RequestQueue requestQueue ;
      RecyclerView listaproductos;
     List<producto> productos;
+    //List<producto> listaOriginal;
     Adapter adapter;
     String JSON_URL = "http://10.0.2.2:8080/api/producto" ;
+    SearchView txtbuscar;
+
+
 
 
 
@@ -48,13 +54,22 @@ public class Busqueda extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busqueda);
-        listaproductos =findViewById(R.id.listprod2);
+        listaproductos =findViewById(R.id.listprod);
         productos=new ArrayList<>();
         obtenerProductos();
         listaproductos.setHasFixedSize(true);
         listaproductos.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
         adapter= new Adapter(getApplicationContext(), productos );
         listaproductos.setAdapter(adapter);
+
+
+
+
+        //METODO PARA LA BUSQUEDA
+        txtbuscar=findViewById(R.id.txtbuscar);
+
+        //onclik activo
+        txtbuscar.setOnQueryTextListener(this);
 
         /*listaproductos.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));*/
 
@@ -133,6 +148,14 @@ public class Busqueda extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
 
-
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        adapter.filter(newText);
+        return false;
+    }
 }
