@@ -16,7 +16,7 @@
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintTop_toBottomOf="@+id/txtbuscar"
         app:layout_constraintVertical_bias="0.45" />
 
     <View
@@ -119,7 +119,7 @@
         app:srcCompat="@drawable/iconfinder_contat_us_33home_4211870_115065" />
 
     <SearchView
-        android:id="@+id/searchView"
+        android:id="@+id/txtbuscar"
         android:layout_width="336dp"
         android:layout_height="38dp"
         android:background="#B2DBD8D2"
