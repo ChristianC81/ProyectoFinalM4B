@@ -14,7 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.estefania.proyectofinalm4b.clases.Cliente;
+import com.estefania.proyectofinalm4b.clases.Usuario;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,10 +22,11 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+
 public class Inicio_Sesion extends AppCompatActivity {
 
 
-    ArrayList<Cliente> datos =new ArrayList<>();
+    ArrayList<Usuario> datos =new ArrayList<>();
     ArrayAdapter arrayAdapter;
 
     @Override
@@ -59,11 +60,11 @@ public class Inicio_Sesion extends AppCompatActivity {
     private void manejaJson(JSONArray jsonArray){
         for (int i=0; i<jsonArray.length();i++){
             JSONObject jsonObject=null;
-            Cliente publicacion=new Cliente();
+            Usuario publicacion=new Usuario();
             try {
                 jsonObject=jsonArray.getJSONObject(i);
-                publicacion.setCli_clave(jsonObject.getString("cli_clave"));
-                publicacion.setCli_correo(jsonObject.getString("cli_correo"));
+                publicacion.setUsur_clave(jsonObject.getString("cli_clave"));
+                publicacion.setUsur_correo(jsonObject.getString("cli_correo"));
                 datos.add(publicacion);
             } catch (JSONException e) {
                 throw new RuntimeException(e);
@@ -99,7 +100,7 @@ public class Inicio_Sesion extends AppCompatActivity {
         String correox=co.getText().toString();
         String clavex=cla.getText().toString();
         for (int x=0;x< datos.size();x++){
-            if (datos.get(x).getCli_correo().equals(correox)&&datos.get(x).getCli_clave().equals(clavex)){
+            if (datos.get(x).getUsur_correo().equals(correox)&&datos.get(x).getUsur_clave().equals(clavex)){
 
                 non=0;
             }
@@ -114,8 +115,6 @@ public class Inicio_Sesion extends AppCompatActivity {
             Toast toast1 =
                     Toast.makeText(getApplicationContext(),
                             "ENCONTRADO", Toast.LENGTH_SHORT);
-
-
             toast1.show();
 
         }
