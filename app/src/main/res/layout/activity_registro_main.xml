@@ -6,181 +6,191 @@
     android:layout_height="match_parent"
     tools:context=".registro_main">
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="41dp"
-            android:text="                           Registrase"
-            android:textSize="22dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ruc/Cédula/Pasaporte" />
-
-        <EditText
-            android:id="@+id/txtV_Identificacion"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:ems="10"
-            android:hint="id"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nombres" />
-
-        <EditText
-            android:id="@+id/txtV_Nombres"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:ems="10"
-            android:hint="Nombres"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Dirección" />
-
-        <EditText
-            android:id="@+id/txtV_direccion"
-            android:layout_width="match_parent"
-            android:layout_height="68dp"
-            android:ems="10"
-            android:hint="Direccion"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Teléfono" />
-
-        <EditText
-            android:id="@+id/txtV_telefono"
-            android:layout_width="match_parent"
-            android:layout_height="57dp"
-            android:ems="10"
-            android:hint="Telefono"
-            android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Correo" />
-
-        <EditText
-            android:id="@+id/txtV_correo"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:ems="10"
-            android:hint="Correo"
-            android:inputType="textEmailAddress" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Contraseña" />
-
-        <EditText
-            android:id="@+id/txtV_clave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Contraseña"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
-
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/material_dynamic_neutral_variant80">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="112dp"
-            android:orientation="vertical">
+            android:layout_width="409dp"
+            android:layout_height="729dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:text="                           Registrase"
+                android:textSize="22dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Repita su contraseña" />
+                android:text="Ruc/Cédula/Pasaporte" />
 
             <EditText
-                android:id="@+id/txtV_claveRepetir"
+                android:id="@+id/txtV_Identificacion"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:ems="10"
+                android:hint="id"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombres" />
+
+            <EditText
+                android:id="@+id/txtV_Nombres"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:ems="10"
+                android:hint="Nombres"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dirección" />
+
+            <EditText
+                android:id="@+id/txtV_direccion"
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:ems="10"
+                android:hint="Direccion"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Teléfono" />
+
+            <EditText
+                android:id="@+id/txtV_telefono"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:ems="10"
+                android:hint="Telefono"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Correo" />
+
+            <EditText
+                android:id="@+id/txtV_correo"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:ems="10"
+                android:hint="Correo"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contraseña" />
+
+            <EditText
+                android:id="@+id/txtV_clave"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Nuevamente su contraseña"
+                android:hint="Contraseña"
                 android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
-            <CheckBox
-                android:id="@+id/check_terminos"
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:minHeight="48dp"
-                android:text="Acepta nuetros terminos y condiciones" />
+                android:layout_height="112dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Repita su contraseña" />
+
+                <EditText
+                    android:id="@+id/txtV_claveRepetir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Nuevamente su contraseña"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp" />
+
+                <CheckBox
+                    android:id="@+id/check_terminos"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:minHeight="48dp"
+                    android:text="Acepta nuetros terminos y condiciones" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/bt_registrar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Resgistrarme"
+                    app:cornerRadius="20dp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="93dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="212dp"
+                    android:layout_height="wrap_content"
+                    android:text="                          ¿Ya tienes cuenta? " />
+
+                <Button
+                    android:id="@+id/bt_volverInicio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:background="#00FFFFFF"
+                    android:text="Iniciar Sesion" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/bt_registrar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Resgistrarme"
-                app:cornerRadius="20dp" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="93dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="212dp"
-                android:layout_height="wrap_content"
-                android:text="                          ¿Ya tienes cuenta? " />
-
-            <Button
-                android:id="@+id/bt_volverInicio"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:background="#00FFFFFF"
-                android:text="Iniciar Sesion" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

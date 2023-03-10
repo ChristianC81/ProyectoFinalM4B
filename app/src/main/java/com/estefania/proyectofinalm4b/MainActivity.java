@@ -1,6 +1,7 @@
 package com.estefania.proyectofinalm4b;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,6 +24,7 @@ import org.json.JSONObject;
 
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -33,6 +36,13 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     ArrayList<String> datos=new ArrayList<>();
     ArrayAdapter arrayAdapter;
+
+    JsonArrayRequest request ;
+    RequestQueue requestQueue ;
+    RecyclerView listaproductos;
+    List<producto> productos;
+    Adapter adapter;
+    String JSON_URL = "http://10.0.2.2:8080/api/producto" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

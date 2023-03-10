@@ -149,12 +149,13 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtPrecio"
+                    android:id="@+id/txtProdCod"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/precio"
-                    android:textColor="@color/black"
-                    android:textColorHint="#757575" />
+                    android:hint="@string/Codigo"
+                    android:textColor="@color/purple_700"
+                    android:textSize="16sp"
+                    tools:text="Codigo" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -166,18 +167,21 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/nombre_producto"
                     android:textColor="@color/black"
-                    android:textColorHint="#757575" />
+                    android:textColorHint="#757575"
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="25dp" />
 
                 <TextView
-                    android:id="@+id/textView9"
+                    android:id="@+id/txtTipo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/detalle_producto"
-                    android:textColor="@color/purple_700" />
+                    android:hint="@string/Tipo"
+                    android:text="Tipo"
+                    android:textSize="16sp"
+                    tools:text="Tipo" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -189,7 +193,33 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/detalle"
                     android:textColor="@color/black"
-                    android:textColorHint="#757575" />
+                    android:textColorHint="#757575"
+                    android:textSize="16sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp" />
+
+                <TextView
+                    android:id="@+id/txtStock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/Stock"
+                    android:text="Stock"
+                    android:textSize="16sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp" />
+
+                <TextView
+                    android:id="@+id/txtPrecio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/precio"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textColorHint="#757575"
+                    android:textSize="16sp" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -202,6 +232,7 @@
                     android:backgroundTint="#EFA632"
                     android:text="@string/agregar_al_carrito"
                     android:textColor="#302207" />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

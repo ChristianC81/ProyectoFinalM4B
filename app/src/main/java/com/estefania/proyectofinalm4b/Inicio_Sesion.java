@@ -29,43 +29,11 @@ public class Inicio_Sesion extends AppCompatActivity {
 
     ArrayList<Usuario> datos =new ArrayList<>();
     ArrayAdapter arrayAdapter;
-    EditText co;
-    EditText cla;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
-
-        co = findViewById(R.id.txtcorreo);
-        cla=findViewById(R.id.txtclave);
-
-        co.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (!hasFocus) {
-                    String textCorr = co.getText().toString().trim();
-                    if (textCorr.isEmpty()) {
-                        co.setError("Campo obligatorio");
-                    } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(textCorr).matches()) {
-                        co.setError("Correo inválido");
-                    }
-                }
-            }
-        });
-
-        cla.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (!hasFocus) {
-                    String textClav = cla.getText().toString().trim();
-                    if (textClav.isEmpty()) {
-                        cla.setError("Campo obligatorio");
-                    }
-                }
-            }
-        });
-
         obtenerDatos();
         Button info = findViewById(R.id.botoniniciarsesion);
         info.setOnClickListener(new View.OnClickListener() {
@@ -126,6 +94,8 @@ public class Inicio_Sesion extends AppCompatActivity {
 
     public void verificar(View v){
         Integer non=1;
+        EditText co = findViewById(R.id.txtcorreo);
+        EditText cla=findViewById(R.id.txtclave);
 
         String correox=co.getText().toString();
         String clavex=cla.getText().toString();
@@ -135,17 +105,16 @@ public class Inicio_Sesion extends AppCompatActivity {
                 non=0;
             }
         }
-
         if (non==1){
             Toast toast1 =
                     Toast.makeText(getApplicationContext(),
-                            "Correo o contraseña inválidos", Toast.LENGTH_SHORT);
+                            "NO ENCONTRADO", Toast.LENGTH_SHORT);
 
             toast1.show();
         }else {
             Toast toast1 =
                     Toast.makeText(getApplicationContext(),
-                            "Ingreso exitoso", Toast.LENGTH_SHORT);
+                            "ENCONTRADO", Toast.LENGTH_SHORT);
             toast1.show();
             Intent intent = new Intent (v.getContext(), MainActivity.class);
             startActivityForResult(intent, 0);
