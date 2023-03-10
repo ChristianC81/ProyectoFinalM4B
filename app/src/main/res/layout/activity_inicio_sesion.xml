@@ -29,33 +29,18 @@
             app:srcCompat="@drawable/logofinal_jpg" />
 
         <EditText
-            android:id="@+id/txtclave"
-            android:layout_width="372dp"
-            android:layout_height="74dp"
-            android:layout_marginStart="39dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="48dp"
-            android:ems="10"
-            android:hint="Contraseña"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/botoniniciarsesion"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.666"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
             android:id="@+id/txtcorreo"
             android:layout_width="369dp"
             android:layout_height="86dp"
             android:layout_marginStart="28dp"
             android:layout_marginEnd="27dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="12dp"
             android:ems="10"
             android:hint="Correo"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/txtclave"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.769"
+            app:layout_constraintHorizontal_bias="0.461"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
@@ -103,6 +88,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.857" />
+
+        <EditText
+            android:id="@+id/txtclave"
+            android:layout_width="368dp"
+            android:layout_height="81dp"
+            android:layout_marginBottom="28dp"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@+id/botoniniciarsesion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
