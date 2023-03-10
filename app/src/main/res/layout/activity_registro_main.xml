@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Contraseña"
-                android:inputType="numberPassword"
+                android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
 
@@ -135,7 +135,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Nuevamente su contraseña"
-                    android:inputType="numberPassword"
+                    android:inputType="textPersonName"
                     android:minHeight="48dp" />
 
                 <CheckBox
