@@ -106,7 +106,7 @@ public class registro_main extends AppCompatActivity {
                 }
             }
         });
-
+*/
         regis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,7 +130,7 @@ public class registro_main extends AppCompatActivity {
 
                         progressDialog.dismiss();//Ocultar el resultado
 
-                        if(validacionesAll(cedula_usu, nombre_usu, correo_usu, clave_usu, direccion_usu, telefono_usu)){
+                        //if(validacionesAll(cedula_usu, nombre_usu, correo_usu, clave_usu, direccion_usu, telefono_usu)){
                             if(Tterminos.isChecked()){
                                 try {
                                     enviarSolicitudRegistroUsuario(cedula_usu, nombre_usu, correo_usu, clave_usu, direccion_usu, telefono_usu);
@@ -143,9 +143,9 @@ public class registro_main extends AppCompatActivity {
                                 Tterminos.setTextColor(Color.RED);
                                 Toast.makeText(getApplicationContext(), "Los terminos y condiciones de la aplicacion no han sido aceptados", Toast.LENGTH_LONG).show();
                             }
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Compruebe si no hay errores en los campos", Toast.LENGTH_LONG).show();
-                        }
+                        //} else {
+                          //  Toast.makeText(getApplicationContext(), "Compruebe si no hay errores en los campos", Toast.LENGTH_LONG).show();
+                        //}
                     }
                 }, 2300); // Simular un proceso que tarda 2.3 segundos
 
