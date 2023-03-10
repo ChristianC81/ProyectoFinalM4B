@@ -84,9 +84,6 @@ public class registro_main extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
-        //ProgressDialog.setMessage("Realizando registro...");
-        //ProgressDialog.show();
-
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.POST, url, jsonObject,
                 response -> {

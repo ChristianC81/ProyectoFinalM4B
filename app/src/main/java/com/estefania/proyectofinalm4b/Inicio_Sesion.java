@@ -1,5 +1,6 @@
 package com.estefania.proyectofinalm4b;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -39,9 +40,8 @@ public class Inicio_Sesion extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                verificar();
-                Intent intent = new Intent (v.getContext(), MainActivity.class);
-                startActivityForResult(intent, 0);
+                verificar(v);
+
 
             }
         });
@@ -57,24 +57,24 @@ public class Inicio_Sesion extends AppCompatActivity {
         });
     }
 
-    private void manejaJson(JSONArray jsonArray){
+    private void manejaJson(@NonNull JSONArray jsonArray){
         for (int i=0; i<jsonArray.length();i++){
             JSONObject jsonObject=null;
             Usuario publicacion=new Usuario();
             try {
                 jsonObject=jsonArray.getJSONObject(i);
-                publicacion.setUsur_clave(jsonObject.getString("cli_clave"));
-                publicacion.setUsur_correo(jsonObject.getString("cli_correo"));
+                publicacion.setUsur_clave(jsonObject.getString("usu_clave"));
+                publicacion.setUsur_correo(jsonObject.getString("usu_correo"));
                 datos.add(publicacion);
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
         }
-        arrayAdapter.notifyDataSetChanged();
+        //arrayAdapter.notifyDataSetChanged();
     }
 
     private void obtenerDatos(){
-        String url="http://10.0.2.2:8080/api/cliente";
+        String url="http://10.0.2.2:8080/api/usuarios";
         JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -92,7 +92,7 @@ public class Inicio_Sesion extends AppCompatActivity {
         Volley.newRequestQueue(this).add(jsonArrayRequest);
     }
 
-    public void verificar(){
+    public void verificar(View v){
         Integer non=1;
         EditText co = findViewById(R.id.txtcorreo);
         EditText cla=findViewById(R.id.txtclave);
@@ -116,7 +116,8 @@ public class Inicio_Sesion extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),
                             "ENCONTRADO", Toast.LENGTH_SHORT);
             toast1.show();
-
+            Intent intent = new Intent (v.getContext(), MainActivity.class);
+            startActivityForResult(intent, 0);
         }
 
     }
