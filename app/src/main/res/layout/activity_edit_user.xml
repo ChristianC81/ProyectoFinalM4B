@@ -40,7 +40,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="413dp"
+            android:layout_width="match_parent"
             android:layout_height="39dp"
             android:layout_weight="0.9"
             android:background="#B6B0A4"
