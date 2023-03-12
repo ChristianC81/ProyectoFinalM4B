@@ -12,11 +12,12 @@ import android.widget.TextView;
 public class detalle_producto extends AppCompatActivity {
 
     String nombre="";
+    String descripcion="";
+    String precio="";
     String codigo="";
     String tipo="";
-    String descripcion="";
     String stock="";
-    String precio="";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,25 +30,25 @@ public class detalle_producto extends AppCompatActivity {
             nombre = extras.getString("nombre");
             descripcion = extras.getString("descripcion");
             precio = extras.getString("precio");
-            /*codigo = extras.getString("codigo");
+            codigo = extras.getString("codigo");
             tipo = extras.getString("tipo");
-            stock = extras.getString("descripcion");*/
+            stock = extras.getString("stock");
         }
 
         TextView txtNombre = (TextView) findViewById(R.id.txtNombreProducto);
         TextView txtdescripcion = (TextView) findViewById(R.id.txtDetalle);
         TextView txtprecio = (TextView) findViewById(R.id.txtPrecio);
-        /*TextView txttipo = (TextView) findViewById(R.id.txtTipo);
+        TextView txttipo = (TextView) findViewById(R.id.txtTipo);
         TextView txtcod = (TextView) findViewById(R.id.txtProdCod);
-        TextView txtstock = (TextView) findViewById(R.id.txtStock);*/
+        TextView txtstock = (TextView) findViewById(R.id.txtStock);
 
 
         txtNombre.setText(nombre);
         txtdescripcion.setText(descripcion);
         txtprecio.setText(precio);
-        /*txtcod.setText(codigo);
+        txtcod.setText(codigo);
         txttipo.setText(tipo);
-        txtstock.setText(stock);*/
+        txtstock.setText(stock);
 
 
 

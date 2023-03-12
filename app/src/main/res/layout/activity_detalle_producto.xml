@@ -180,6 +180,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/Tipo"
                     android:text="Tipo"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     tools:text="Tipo" />
 
@@ -206,6 +207,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/Stock"
                     android:text="Stock"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
                 <Space

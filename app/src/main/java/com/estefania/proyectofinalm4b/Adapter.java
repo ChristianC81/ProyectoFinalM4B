@@ -76,9 +76,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             descripcion = (TextView) itemView.findViewById(R.id.textViewdescripcion);
             nombre = (TextView) itemView.findViewById(R.id.txtprod_nombre);
             precio = (TextView) itemView.findViewById(R.id.txtprod_preciounitario);
-            /*codigo = (TextView) itemView.findViewById(R.id.textViewcodigo);
+            codigo = (TextView) itemView.findViewById(R.id.textViewcodigo);
             tipo = (TextView) itemView.findViewById(R.id.textViewtipo);
-            stock = (TextView) itemView.findViewById(R.id.textViewstock);*/
+            stock = (TextView) itemView.findViewById(R.id.textViewstock);
 
 
             btnimg2 = (ImageButton) itemView.findViewById(R.id.imgbtn2);
@@ -98,9 +98,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     intent1.putExtra("nombre", nombre.getText());
                     intent1.putExtra("precio", precio.getText());
                     intent1.putExtra("descripcion", descripcion.getText());
-                    /*intent1.putExtra("codigo", codigo.getText());
+                    intent1.putExtra("codigo", codigo.getText());
                     intent1.putExtra("tipo", tipo.getText());
-                    intent1.putExtra("stock", stock.getText());*/
+                    intent1.putExtra("stock", stock.getText());
                     contexto.startActivity(intent1);
                     break;
                 case R.id.imgbtn2:
@@ -119,9 +119,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.descripcion.setText(productos.get(position).getProd_descripcion());
         holder.nombre.setText(productos.get(position).getProd_nombre());
         holder.precio.setText(String.valueOf(productos.get(position).getProd_preciounitario()));
-        /*holder.stock.setText(String.valueOf(productos.get(position).getStock()));
+        holder.stock.setText(String.valueOf(productos.get(position).getStock()));
         holder.codigo.setText(productos.get(position).getProd_codigo());
-        holder.tipo.setText(productos.get(position).getProd_tipo());*/
+        holder.tipo.setText(productos.get(position).getProd_tipo());
         /*notifyDataSetChanged();*/
     }
 
