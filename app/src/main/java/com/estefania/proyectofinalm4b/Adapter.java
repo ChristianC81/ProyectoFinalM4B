@@ -34,7 +34,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         this.listaOriginal = new ArrayList<>();
         listaOriginal.addAll(productos);
         this.contexto = contexto;
-
     }
 
     @Override
@@ -48,7 +47,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         }
         return a;
     }
-
 
     @NonNull
     @Override
@@ -64,23 +62,24 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         ImageButton btnimg2;
         ImageButton detalle;
         ////los textos
-        TextView codigo;
-        TextView nombre;
-        TextView tipo;
-        TextView descripcion;
-        TextView stock;
         TextView precio;
+        TextView nombre;
+        TextView descripcion;
+        TextView tipo;
+        TextView stock;
+        TextView codigo;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             contexto = itemView.getContext();
-            codigo = (TextView) itemView.findViewById(R.id.txtprod_nombre);
+            descripcion = (TextView) itemView.findViewById(R.id.textViewdescripcion);
             nombre = (TextView) itemView.findViewById(R.id.txtprod_nombre);
-            tipo = (TextView) itemView.findViewById(R.id.txtTipo);
-            descripcion = (TextView) itemView.findViewById(R.id.txtTipo);
-            stock = (TextView) itemView.findViewById(R.id.txtStock);
             precio = (TextView) itemView.findViewById(R.id.txtprod_preciounitario);
-            /*nombre= itemView.findViewById(R.id.txtprod_nombre);*/
+            /*codigo = (TextView) itemView.findViewById(R.id.textViewcodigo);
+            tipo = (TextView) itemView.findViewById(R.id.textViewtipo);
+            stock = (TextView) itemView.findViewById(R.id.textViewstock);*/
+
 
             btnimg2 = (ImageButton) itemView.findViewById(R.id.imgbtn2);
             detalle = (ImageButton) itemView.findViewById(R.id.btnimgDetalle);
@@ -98,8 +97,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     Intent intent1 = new Intent (contexto, detalle_producto.class);
                     intent1.putExtra("nombre", nombre.getText());
                     intent1.putExtra("precio", precio.getText());
+                    intent1.putExtra("descripcion", descripcion.getText());
                     /*intent1.putExtra("codigo", codigo.getText());
-                    intent1.putExtra("tipo", tipo.getText());*/
+                    intent1.putExtra("tipo", tipo.getText());
+                    intent1.putExtra("stock", stock.getText());*/
                     contexto.startActivity(intent1);
                     break;
                 case R.id.imgbtn2:
@@ -113,20 +114,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        //bind dhe data
         ///PONER LOS EVENTOS
         holder.setOnClickListeners();
-        /*
-        holder.tipo.setText(productos.get(position).getProd_nombre());
-        holder.codigo.setText(productos.get(position).getProd_nombre());*/
-        holder.nombre.setText(productos.get(position).getProd_descripcion());
+        holder.descripcion.setText(productos.get(position).getProd_descripcion());
         holder.nombre.setText(productos.get(position).getProd_nombre());
         holder.precio.setText(String.valueOf(productos.get(position).getProd_preciounitario()));
-
-       /* double precioDouble = Double.parseDouble(productos.get(position).getProd_preciounitario());
-        holder.precio.setText(String.valueOf(precioDouble));*/
+        /*holder.stock.setText(String.valueOf(productos.get(position).getStock()));
+        holder.codigo.setText(productos.get(position).getProd_codigo());
+        holder.tipo.setText(productos.get(position).getProd_tipo());*/
         /*notifyDataSetChanged();*/
     }
+
+
 
     //METODO PARA BUSCAR
     public void filter(final String txtbuscar) {
