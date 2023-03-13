@@ -45,7 +45,7 @@ public class detalle_producto extends AppCompatActivity {
 
         txtNombre.setText(nombre);
         txtdescripcion.setText(descripcion);
-        txtprecio.setText(precio);
+        txtprecio.setText("$  "+precio);
         txtcod.setText(codigo);
         txttipo.setText(tipo);
         txtstock.setText(stock);

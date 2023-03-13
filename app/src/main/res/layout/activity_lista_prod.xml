@@ -100,21 +100,21 @@
                 android:id="@+id/textViewdescripcion"
                 android:layout_width="20dp"
                 android:layout_height="22dp"
-                android:layout_marginStart="72dp"
+                android:layout_marginStart="52dp"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.306" />
+                app:layout_constraintVertical_bias="0.324" />
 
             <TextView
                 android:id="@+id/textViewcodigo"
-                android:layout_width="39dp"
-                android:layout_height="24dp"
+                android:layout_width="19dp"
+                android:layout_height="25dp"
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.164"
+                app:layout_constraintHorizontal_bias="0.111"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

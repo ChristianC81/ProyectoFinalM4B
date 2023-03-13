@@ -81,6 +81,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#B5AFA3"
@@ -135,9 +136,10 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
-            android:layout_width="362dp"
-            android:layout_height="386dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="176dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.489"
             app:layout_constraintStart_toStartOf="parent"
@@ -149,9 +151,16 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Codigo del producto:" />
+
+                <TextView
                     android:id="@+id/txtProdCod"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:hint="@string/Codigo"
                     android:textColor="@color/purple_700"
                     android:textSize="16sp"
@@ -160,6 +169,12 @@
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="25dp" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre del producto:" />
 
                 <TextView
                     android:id="@+id/txtNombreProducto"
@@ -173,6 +188,12 @@
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="25dp" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tipo de producto:" />
 
                 <TextView
                     android:id="@+id/txtTipo"
@@ -189,6 +210,12 @@
                     android:layout_height="25dp" />
 
                 <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Descripcion:" />
+
+                <TextView
                     android:id="@+id/txtDetalle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -200,6 +227,12 @@
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="25dp" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cantidad en Disposicion:" />
 
                 <TextView
                     android:id="@+id/txtStock"
@@ -215,13 +248,20 @@
                     android:layout_height="25dp" />
 
                 <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Precio:" />
+
+                <TextView
                     android:id="@+id/txtPrecio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:hint="@string/precio"
                     android:textColor="@android:color/holo_green_dark"
                     android:textColorHint="#757575"
-                    android:textSize="16sp" />
+                    android:textSize="24sp" />
 
                 <Space
                     android:layout_width="match_parent"

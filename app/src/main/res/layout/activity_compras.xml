@@ -13,6 +13,16 @@
         android:backgroundTint="#00FFFFFF"
         tools:context=".Compras">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listViewProductos"
+            android:layout_width="404dp"
+            android:layout_height="509dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/view2"
+            app:layout_constraintHorizontal_bias="0.428"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <View
             android:id="@+id/view2"
             android:layout_width="wrap_content"
@@ -121,16 +131,6 @@
                 app:srcCompat="@drawable/ceo_icon_icons_com_76995"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listViewProductos"
-            android:layout_width="404dp"
-            android:layout_height="509dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/view2"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
