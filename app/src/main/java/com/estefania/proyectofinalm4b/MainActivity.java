@@ -54,6 +54,17 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(arrayAdapter);
         contenerDatos();
 
+
+
+        ImageButton informacion=findViewById(R.id.btninformacion);
+        informacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (v.getContext(),Informacion.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
         ImageButton info2 = findViewById(R.id.imageButtonInicio2);
         info2.setOnClickListener(new View.OnClickListener() {
             @Override
