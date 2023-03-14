@@ -122,6 +122,7 @@
             app:layout_constraintVertical_bias="0.396" />
 
         <ImageButton
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:id="@+id/btninformacion"
             android:layout_width="45dp"
             android:layout_height="40dp"

@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         informacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (v.getContext(),Informacion.class);
+                Intent intent = new Intent (v.getContext(), Informacion.class);
                 startActivityForResult(intent, 0);
             }
         });
