@@ -20,6 +20,7 @@ public class Perfil extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (v.getContext(),Principal.class);
+                
                 startActivityForResult(intent, 0);
             }
         });

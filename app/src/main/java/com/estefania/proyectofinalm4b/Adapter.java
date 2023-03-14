@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -24,7 +25,7 @@ import java.util.stream.Collectors;
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private Context contexto;
-    String JSON_URL = "http://192.168.18.52:8080/api/productos" ;
+    String JSON_URL = "http://192.168.18.52:8080/api/productos";
     List<producto> productos;
     LayoutInflater inflater;
     List<producto> listaOriginal;
@@ -38,11 +39,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        int a ;
-        if(productos != null && !productos.isEmpty()) {
+        int a;
+        if (productos != null && !productos.isEmpty()) {
             a = productos.size();
-        }
-        else {
+        } else {
             a = 0;
         }
         return a;
@@ -51,7 +51,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater. from(parent.getContext()).inflate(R.layout.activity_lista_prod, parent, false);
+        View view = inflater.from(parent.getContext()).inflate(R.layout.activity_lista_prod, parent, false);
         return new ViewHolder(view);
     }
 
@@ -90,11 +90,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             detalle.setOnClickListener(this);
             btnimg2.setOnClickListener(this);
         }
+
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.btnimgDetalle:
-                    Intent intent1 = new Intent (contexto, detalle_producto.class);
+                    Intent intent1 = new Intent(contexto, detalle_producto.class);
                     intent1.putExtra("nombre", nombre.getText());
                     intent1.putExtra("precio", precio.getText());
                     intent1.putExtra("descripcion", descripcion.getText());
@@ -104,10 +105,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     contexto.startActivity(intent1);
                     break;
                 case R.id.imgbtn2:
-                    Intent intent2 = new Intent (contexto, activity_compras.class);
-                    contexto.startActivity(intent2);
+                    Toast.makeText(contexto, "Añadido al carrito de compras", Toast.LENGTH_SHORT).show();
                     break;
-
             }
         }
     }
@@ -126,14 +125,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
 
-
     //METODO PARA BUSCAR
     public void filter(final String txtbuscar) {
         if (txtbuscar.length() == 0) {
             productos.clear();
             productos.addAll(listaOriginal);
-        }
-        else {
+        } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 
                 List<producto> collect = productos.stream()
@@ -141,8 +138,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                         .collect(Collectors.toList());
                 productos.clear();
                 productos.addAll(collect);
-            }
-            else {
+            } else {
                 productos.clear();
                 for (producto i : listaOriginal) {
                     if (i.getProd_nombre().toLowerCase().contains(txtbuscar)) {

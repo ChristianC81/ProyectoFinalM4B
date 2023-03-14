@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class detalle_producto extends AppCompatActivity {
 
@@ -67,7 +68,11 @@ public class detalle_producto extends AppCompatActivity {
         infor6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (v.getContext(), activity_compras.class);
+                Intent intent = new Intent (v.getContext(), Busqueda.class);
+                Toast toast70 =
+                        Toast.makeText(getApplicationContext(),
+                                "Añadido al carrito de compras", Toast.LENGTH_SHORT);
+                toast70.show();
                 startActivityForResult(intent, 0);
             }
         });
