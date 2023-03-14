@@ -37,7 +37,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="451dp"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_weight="0.9"
             android:background="#B5AFA3"
@@ -81,8 +81,8 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="413dp"
-            android:layout_height="39dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="#B5AFA3"
             android:backgroundTint="#B5AFA3"
             android:orientation="horizontal"
@@ -180,6 +180,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/Tipo"
                     android:text="Tipo"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     tools:text="Tipo" />
 
@@ -206,6 +207,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/Stock"
                     android:text="Stock"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
                 <Space

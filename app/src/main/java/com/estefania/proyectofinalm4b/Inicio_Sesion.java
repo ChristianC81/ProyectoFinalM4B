@@ -39,10 +39,7 @@ public class Inicio_Sesion extends AppCompatActivity {
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 verificar(v);
-
-
             }
         });
 
@@ -109,7 +106,6 @@ public class Inicio_Sesion extends AppCompatActivity {
             Toast toast1 =
                     Toast.makeText(getApplicationContext(),
                             "NO ENCONTRADO", Toast.LENGTH_SHORT);
-
             toast1.show();
         }else {
             Toast toast1 =

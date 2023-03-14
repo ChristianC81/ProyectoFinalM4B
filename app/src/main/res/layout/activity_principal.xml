@@ -53,7 +53,7 @@
 
             <ImageView
                 android:id="@+id/imageView7"
-                android:layout_width="431dp"
+                android:layout_width="match_parent"
                 android:layout_height="234dp"
                 android:background="#C83E3A3A"
                 app:layout_constraintBottom_toBottomOf="parent"

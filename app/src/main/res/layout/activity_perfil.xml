@@ -90,7 +90,7 @@
 
     <View
         android:id="@+id/view5"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="43dp"
         android:background="#B7B1A5"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -102,7 +102,7 @@
 
     <View
         android:id="@+id/view14"
-        android:layout_width="415dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#B7B1A5"
         app:layout_constraintBottom_toBottomOf="parent"

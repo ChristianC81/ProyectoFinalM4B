@@ -34,8 +34,6 @@ import java.util.List;
 public class Busqueda extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
     //DECLARAR LISTVIEW DE PRODUCTOS
-
-
     JsonArrayRequest request ;
      RequestQueue requestQueue ;
      RecyclerView listaproductos;
@@ -44,11 +42,6 @@ public class Busqueda extends AppCompatActivity implements SearchView.OnQueryTex
     Adapter adapter;
     String JSON_URL = "http://10.0.2.2:8080/api/producto" ;
     SearchView txtbuscar;
-
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +55,6 @@ public class Busqueda extends AppCompatActivity implements SearchView.OnQueryTex
         adapter= new Adapter(getApplicationContext(), productos );
         listaproductos.setAdapter(adapter);
 
-
-
-
         //METODO PARA LA BUSQUEDA
         txtbuscar=findViewById(R.id.txtbuscar);
 
@@ -72,7 +62,6 @@ public class Busqueda extends AppCompatActivity implements SearchView.OnQueryTex
         txtbuscar.setOnQueryTextListener(this);
 
         /*listaproductos.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));*/
-
 
         //Jason
         ImageButton info = findViewById(R.id.imageButtonInicio2);
@@ -101,50 +90,39 @@ public class Busqueda extends AppCompatActivity implements SearchView.OnQueryTex
                 startActivityForResult(intent, 0);
             }
         });
-
     }
 
     public void obtenerProductos(){
         requestQueue = Volley.newRequestQueue(Busqueda.this);
-
         request = new JsonArrayRequest( Request.Method.GET,JSON_URL,null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
 
-
-
                 for (int i = 0 ; i < response.length(); i++ ) {
-
 
                     try {
                         JSONObject productoObject = response.getJSONObject(i) ;
                         producto productos1 = new producto() ;
                         productos1.setProd_nombre(productoObject.getString("prod_nombre").toString());
                         productos1.setProd_preciounitario(productoObject.getDouble("prod_preciounitario"));
+                        productos1.setProd_descripcion(productoObject.getString("prod_descripcion").toString());
+                        productos1.setProd_tipo(productoObject.getString("prod_tipo").toString());
+                        productos1.setStock(productoObject.getInt("prod_stock"));
+                        productos1.setProd_codigo(productoObject.getString("prod_codigo").toString());
                         productos.add(productos1);
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
-
                 }
-
                 adapter.notifyDataSetChanged();
-
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("tag","onErrorResponse;" +error.getMessage());
-
             }
         });
-
         requestQueue.add(request) ;
-
-
     }
 
 

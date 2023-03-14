@@ -12,11 +12,12 @@ import android.widget.TextView;
 public class detalle_producto extends AppCompatActivity {
 
     String nombre="";
+    String descripcion="";
+    String precio="";
     String codigo="";
     String tipo="";
-    String descripcion="";
     String stock="";
-    String precio="";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,24 +25,32 @@ public class detalle_producto extends AppCompatActivity {
         setContentView(R.layout.activity_detalle_producto);
 
         //////PONER LOS DATOS EN LA VISTA
-
-
         Bundle extras = getIntent().getExtras();
         if (extras!=null){
             nombre = extras.getString("nombre");
-            codigo = extras.getString("prod_codigo");
-            precio = extras.getString("prod_precio");
-            descripcion = extras.getString("prod_descripcion");
+            descripcion = extras.getString("descripcion");
+            precio = extras.getString("precio");
+            codigo = extras.getString("codigo");
+            tipo = extras.getString("tipo");
+            stock = extras.getString("stock");
         }
 
         TextView txtNombre = (TextView) findViewById(R.id.txtNombreProducto);
-        TextView txttipo = (TextView) findViewById(R.id.txtTipo);
         TextView txtdescripcion = (TextView) findViewById(R.id.txtDetalle);
+        TextView txtprecio = (TextView) findViewById(R.id.txtPrecio);
+        TextView txttipo = (TextView) findViewById(R.id.txtTipo);
         TextView txtcod = (TextView) findViewById(R.id.txtProdCod);
+        TextView txtstock = (TextView) findViewById(R.id.txtStock);
+
 
         txtNombre.setText(nombre);
         txtdescripcion.setText(descripcion);
+        txtprecio.setText(precio);
         txtcod.setText(codigo);
+        txttipo.setText(tipo);
+        txtstock.setText(stock);
+
+
 
         ///////FIN DEL PROCESEISHON
 
@@ -49,7 +58,7 @@ public class detalle_producto extends AppCompatActivity {
         info2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (v.getContext(), Inicio_Sesion.class);
+                Intent intent = new Intent (v.getContext(), MainActivity.class);
                 startActivityForResult(intent, 0);
             }
         });

@@ -10,14 +10,13 @@
         android:id="@+id/listprod"
         android:layout_width="392dp"
         android:layout_height="504dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="141dp"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtbuscar"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.629" />
 
     <View
         android:id="@+id/view13"
@@ -32,7 +31,7 @@
 
     <View
         android:id="@+id/view2"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="43dp"
         android:background="#B7B1A5"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,7 +43,7 @@
 
     <View
         android:id="@+id/view8"
-        android:layout_width="415dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#B7B1A5"
         app:layout_constraintBottom_toBottomOf="parent"
