@@ -109,6 +109,7 @@ public class Busqueda extends AppCompatActivity implements SearchView.OnQueryTex
                         productos1.setProd_tipo(productoObject.getString("prod_tipo").toString());
                         productos1.setStock(productoObject.getInt("prod_stock"));
                         productos1.setProd_codigo(productoObject.getString("prod_codigo").toString());
+                        productos1.setProd_id(productoObject.getInt("prod_id"));
                         productos.add(productos1);
                     } catch (JSONException e) {
                         e.printStackTrace();

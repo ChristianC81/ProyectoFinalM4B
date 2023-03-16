@@ -7,12 +7,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class activity_compras extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compras);
+
+
 
         ImageButton info2 = findViewById(R.id.imageButtonInicio4);
         info2.setOnClickListener(new View.OnClickListener() {
@@ -50,4 +61,6 @@ public class activity_compras extends AppCompatActivity {
             }
         });
     }
+
+
 }
