@@ -17,7 +17,7 @@ public class detalle_producto extends AppCompatActivity {
     String precio="";
     String codigo="";
     String tipo="";
-    String stock="";
+    String stock="";  //
 
 
     @Override

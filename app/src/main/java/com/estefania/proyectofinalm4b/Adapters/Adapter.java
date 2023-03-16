@@ -1,4 +1,4 @@
-package com.estefania.proyectofinalm4b;
+package com.estefania.proyectofinalm4b.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,12 +10,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import androidx.annotation.NonNull;
-
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.estefania.proyectofinalm4b.R;
 import com.estefania.proyectofinalm4b.clases.producto;
+import com.estefania.proyectofinalm4b.detalle_producto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,9 +32,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     public Adapter(Context contexto, List<producto> productos) {
         this.productos = productos;
-        this.listaOriginal = new ArrayList<>();
-        listaOriginal.addAll(productos);
         this.contexto = contexto;
+        this.listaOriginal = new ArrayList<>();
+        this.listaOriginal.addAll(productos);
+
     }
 
     @Override
@@ -127,17 +128,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     //METODO PARA BUSCAR
     public void filter(final String txtbuscar) {
+
         if (txtbuscar.length() == 0) {
             productos.clear();
-            productos.addAll(listaOriginal);
+            productos.addAll(productos);
         } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 
-                List<producto> collect = productos.stream()
+                List<producto> productos1 = productos.stream()
                         .filter(i -> i.getProd_nombre().toLowerCase().contains(txtbuscar.toLowerCase()))
                         .collect(Collectors.toList());
-                productos.clear();
-                productos.addAll(collect);
+                listaOriginal.clear();
+                productos.addAll(productos1);
             } else {
                 productos.clear();
                 for (producto i : listaOriginal) {
