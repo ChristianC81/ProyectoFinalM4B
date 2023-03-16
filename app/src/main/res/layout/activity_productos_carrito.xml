@@ -48,7 +48,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txt_descrip1" />
 
         <ImageView
-            android:id="@+id/eachCartItemDeleteBtn"
+            android:id="@+id/botoneliminar"
             android:layout_width="28dp"
             android:layout_height="39dp"
             android:layout_marginTop="12dp"
@@ -58,9 +58,9 @@
             app:srcCompat="@drawable/ic_baseline_delete_24" />
 
         <ImageButton
-            android:id="@+id/eachCartItemAddQuantityBtn"
-            android:layout_width="28dp"
-            android:layout_height="25dp"
+            android:id="@+id/botoninvrementar"
+            android:layout_width="22dp"
+            android:layout_height="21dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="12dp"
             android:background="@color/black"
@@ -69,7 +69,7 @@
             app:srcCompat="@drawable/ic_baseline_add_24" />
 
         <TextView
-            android:id="@+id/eachCartItemQuantityTV"
+            android:id="@+id/cantidadesperada"
             android:layout_width="5dp"
             android:layout_height="13dp"
             android:layout_marginEnd="12dp"
@@ -77,19 +77,19 @@
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/eachCartItemMinusQuantityBtn"
-            app:layout_constraintEnd_toStartOf="@+id/eachCartItemAddQuantityBtn"
-            app:layout_constraintTop_toTopOf="@+id/eachCartItemMinusQuantityBtn" />
+            app:layout_constraintBottom_toBottomOf="@+id/botondisminuir"
+            app:layout_constraintEnd_toStartOf="@+id/botoninvrementar"
+            app:layout_constraintTop_toTopOf="@+id/botondisminuir" />
 
         <ImageButton
-            android:id="@+id/eachCartItemMinusQuantityBtn"
+            android:id="@+id/botondisminuir"
             android:layout_width="31dp"
             android:layout_height="22dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="12dp"
             android:background="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/eachCartItemQuantityTV"
+            app:layout_constraintEnd_toStartOf="@+id/cantidadesperada"
             app:srcCompat="@drawable/ic_baseline_remove_24" />
 
         <ImageView

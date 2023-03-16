@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,54 +18,45 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.estefania.proyectofinalm4b.Interfaces_Comunicacion.Comunicacion;
 import com.estefania.proyectofinalm4b.R;
 import com.estefania.proyectofinalm4b.activity_compras;
-import com.estefania.proyectofinalm4b.clases.producto;
-import com.estefania.proyectofinalm4b.detalle_producto;
+import com.estefania.proyectofinalm4b.clases.Detalle_pedido;
 
 import java.util.List;
+import java.util.Locale;
 
 public class Adapter_Compras extends RecyclerView.Adapter<Adapter_Compras.ViewHolder> {
 
     private Context contexto;
-    List<producto> productos;
-    Comunicacion carrito;
-    ImageButton imgbtn2;
-    LayoutInflater inflater;
-    Button btnAgregarCarro;
+     List<Detalle_pedido> detalles;
+     Comunicacion c;
 
-    public Adapter_Compras(Context contexto, List<producto> productos){
-        this.productos = productos;
-        this.contexto = contexto;
 
-        this.btnAgregarCarro=btnAgregarCarro;
+    public Adapter_Compras( List<Detalle_pedido> detalles, Context contexto ){
+        this.detalles = detalles;
+        this.c = c;
+        this.contexto=contexto;
+
+
+
     }
 
     @NonNull
     @Override
     public Adapter_Compras.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        final View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_productos_carrito, parent, false);
-        return new ViewHolder(v);
+         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_productos_carrito, parent, false);
+        return new ViewHolder(view , this.c);
     }
 
     @Override
     public void onBindViewHolder(@NonNull Adapter_Compras.ViewHolder holder, int position) {
-        holder.setOnClickListeners();
-        holder.descripcion.setText(productos.get(position).getProd_descripcion());
-        holder.nombre.setText(productos.get(position).getProd_nombre());
-        holder.precio.setText(String.valueOf(productos.get(position).getProd_preciounitario()));
-        //holder.stock.setText(String.valueOf(productos.get(position).getStock()));
+        holder.setItem(this.detalles.get(position));
 
 
     }
 
     @Override
     public int getItemCount() {
-        int a;
-        if (productos != null && !productos.isEmpty()) {
-            a = productos.size();
-        } else {
-            a = 0;
-        }
-        return a;
+
+        return detalles.size();
     }
 
 
@@ -72,23 +64,48 @@ public class Adapter_Compras extends RecyclerView.Adapter<Adapter_Compras.ViewHo
         TextView precio;
         TextView nombre;
         TextView descripcion;
+        private final Comunicacion c;
+        ImageView imgPlatilloDC, btnDecrease, btnAdd, btnEliminarPCarrito;
+        EditText edtCantidad;
+
 
         TextView stock;
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, Comunicacion c) {
             super(itemView);
-
+            this.c = c;
+            //imgPlatilloDC = imgPlatilloDC;
+            this.btnEliminarPCarrito = itemView.findViewById(R.id.botoneliminar);
+            this.btnAdd = itemView.findViewById(R.id.botoninvrementar);
+            this.btnDecrease = itemView.findViewById(R.id.botondisminuir);
+            //this.edtCantidad = itemView.findViewById(R.id.cantidadesperada);
             contexto = itemView.getContext();
             descripcion = (TextView) itemView.findViewById(R.id.txt_descrip1);
             nombre = (TextView) itemView.findViewById(R.id.txt_nombreproducto);
             precio = (TextView) itemView.findViewById(R.id.txt_precio_u);
 
+        }
+        public void setItem(final Detalle_pedido dp) {
+            this.nombre.setText(dp.getProducto_agregar().getProd_nombre());
+            this.precio.setText(String.format(Locale.ENGLISH, "S/%.2f", dp.getProducto_agregar().getProd_preciounitario()));
+            int cant = dp.getDeta_cantidad();
+            this.edtCantidad.setText(Integer.toString(cant));
 
-
-            imgbtn2 = (ImageButton) itemView.findViewById(R.id.imgbtn2);
-            btnAgregarCarro = (Button) itemView.findViewById(R.id.btnAgregarCarro);
+            //-------------Actualizar Cantidad del Carrito-------------------------
+            btnAdd.setOnClickListener(v -> {
+                if (dp.getDeta_cantidad() != dp.getProducto_agregar().getStock()) {//Si el valor todavía no llega al estock, puede seguir agregando
+                    dp.addOne();
+                    Adapter_Compras.this.notifyDataSetChanged();
+                }
+            });
+            btnDecrease.setOnClickListener(v -> {
+                if (dp.getDeta_cantidad() != 1) {
+                    dp.removeOne();
+                    Adapter_Compras.this.notifyDataSetChanged();
+                }
+            });
         }
 
-        @Override
+            @Override
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.btnAgregarCarro:
@@ -107,9 +124,6 @@ public class Adapter_Compras extends RecyclerView.Adapter<Adapter_Compras.ViewHo
 
         }
 
-        public void setOnClickListeners() {
-            imgbtn2.setOnClickListener(this);
-            btnAgregarCarro.setOnClickListener(this);
-        }
+
     }
 }

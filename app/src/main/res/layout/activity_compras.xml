@@ -28,8 +28,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listprod2"
-            android:layout_width="392dp"
-            android:layout_height="504dp"
+            android:layout_width="335dp"
+            android:layout_height="418dp"
             app:layoutManager="LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -156,6 +156,18 @@
             android:text="Cancelar Pedido"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <ScrollView
+            android:layout_width="24dp"
+            android:layout_height="8dp"
+            tools:layout_editor_absoluteX="386dp"
+            tools:layout_editor_absoluteY="133dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

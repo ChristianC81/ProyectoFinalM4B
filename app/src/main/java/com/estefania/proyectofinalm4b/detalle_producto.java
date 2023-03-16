@@ -13,10 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.estefania.proyectofinalm4b.Adapters.Adapter_Compras;
+import com.estefania.proyectofinalm4b.Metodos.Metodos_Carritos;
+import com.estefania.proyectofinalm4b.clases.Detalle_pedido;
 import com.estefania.proyectofinalm4b.clases.producto;
 
 import java.util.ArrayList;
 import java.util.List;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class detalle_producto extends AppCompatActivity {
 
@@ -26,6 +29,8 @@ public class detalle_producto extends AppCompatActivity {
     String codigo="";
     String tipo="";
     String stock="";  //
+
+
     producto producto1;
     List<producto> detallePedidos = new ArrayList<>();
 
@@ -78,16 +83,15 @@ public class detalle_producto extends AppCompatActivity {
         Button infor6 = findViewById(R.id.btnAgregarCarro);
         infor6.setOnClickListener(new View.OnClickListener() {
 
+             //Habilitar boton para agregar productos al carrito
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (v.getContext(), activity_compras.class);
-                producto detallePedido = new producto();
-                detallePedido.getProd_nombre();
-                detallePedido.getProd_descripcion();
-                detallePedido.getProd_preciounitario();
-                agregarPlatillos(detallePedido);
+                Detalle_pedido detallePedido = new Detalle_pedido();
+                detallePedido.setProducto_agregar(producto1);
+                detallePedido.getDeta_cantidad();
+               // detallePedido.getProducto_agregar().setProd_preciounitario();
+                successMessage(Metodos_Carritos.agregarPlatillos(detallePedido));
 
-                startActivityForResult(intent, 0);
             }
         });
 
@@ -118,23 +122,16 @@ public class detalle_producto extends AppCompatActivity {
             }
         });
     }
-
-    //Metodo para agregar los procutos al carrito
-    public  String agregarPlatillos(producto detallePedido) {
-        int index = 0;
-        boolean b = false;
-        for (producto dp : detallePedidos) {
-            if (dp.getProd_id() == detallePedido.getProd_id()) {
-                detallePedidos.set(index, detallePedido);
-                b = true;
-                return "El platillo ha sido agregado al carrito, se actualizará la cantidad";
-            }
-            index++;
-        }
-        if (!b) {
-            detallePedidos.add(detallePedido);
-            return "El platillo ha sido agregado al carrito con éxito";
-        }
-        return ". . . . ";
+    public void successMessage(String message) {
+        new SweetAlertDialog(this,
+                SweetAlertDialog.SUCCESS_TYPE).setTitleText("Buen Trabajo!")
+                .setContentText(message).show();
     }
+
+
+    //Agregar los productos al carrito
+
+
+    //Metodo para guardar los procutos al carrito con el conteo
+
 }

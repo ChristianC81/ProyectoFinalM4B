@@ -5,9 +5,30 @@ private Integer deta_id;
 private Integer deta_cantidad;
 private Double deta_precio_total;
 private Integer det_pro_id;
+    private int id;
+    private int cantidad;
+
+private producto producto_agregar;
 
     public Detalle_pedido() {
     }
+
+    public producto getProducto_agregar() {
+        return producto_agregar;
+    }
+
+    public void setProducto_agregar(producto producto_agregar) {
+        this.producto_agregar = producto_agregar;
+    }
+    public void addOne() {
+        this.cantidad++;
+    }
+
+    public void removeOne() {
+        this.cantidad--;
+    }
+
+
 
     public Integer getDeta_id() {
         return deta_id;
