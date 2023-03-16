@@ -21,7 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.estefania.proyectofinalm4b.Adapters.Adapter;
+import com.estefania.proyectofinalm4b.Adapter;
 import com.estefania.proyectofinalm4b.clases.producto;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -111,6 +111,7 @@ public class Busqueda extends AppCompatActivity implements SearchView.OnQueryTex
                         productos1.setProd_tipo(productoObject.getString("prod_tipo").toString());
                         productos1.setStock(productoObject.getInt("prod_stock"));
                         productos1.setProd_codigo(productoObject.getString("prod_codigo").toString());
+                        productos1.setProd_id(productoObject.getInt("prod_id"));
                         productos.add(productos1);
                     } catch (JSONException e) {
                         e.printStackTrace();
