@@ -44,6 +44,7 @@ public class Busqueda extends AppCompatActivity implements SearchView.OnQueryTex
     String JSON_URL = "http://10.0.2.2:8080/api/producto" ;
     SearchView txtbuscar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

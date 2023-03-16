@@ -16,31 +16,36 @@
             android:id="@+id/txt_nombreproducto"
             android:layout_width="95dp"
             android:layout_height="36dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="176dp"
             android:text="TextView"
             android:textColor="@color/black"
             android:textSize="16sp"
-            tools:layout_editor_absoluteX="126dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/eachCartItemBrandNameTv"
+            android:id="@+id/txt_descrip1"
             android:layout_width="91dp"
             android:layout_height="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="176dp"
             android:text="TextView"
             android:textSize="15sp"
-            app:layout_constraintTop_toBottomOf="@+id/txt_nombreproducto"
-            tools:layout_editor_absoluteX="126dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_nombreproducto" />
 
         <TextView
-            android:id="@+id/eachCartItemPriceTv"
+            android:id="@+id/txt_precio_u"
             android:layout_width="98dp"
             android:layout_height="28dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="168dp"
             android:text="TextView"
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/eachCartItemBrandNameTv"
-            tools:layout_editor_absoluteX="126dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_descrip1" />
 
         <ImageView
             android:id="@+id/eachCartItemDeleteBtn"
