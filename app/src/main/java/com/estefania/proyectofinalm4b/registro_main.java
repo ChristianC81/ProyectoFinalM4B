@@ -92,21 +92,67 @@ public class registro_main extends AppCompatActivity {
                 }
             }
         });
-/*
-        TverifiClave.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+        Tclave.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if (!hasFocus) {
-                    String text = TverifiClave.getText().toString().trim();
+                    String text = Tclave.getText().toString().trim();
+                    String text2 = TverifiClave.getText().toString().trim();
                     if (text.isEmpty()) {
-                        TverifiClave.setError("Este campo es requerido");
-                    } else if (!(text == Tclave.getText().toString())) {
+                        Tclave.setError("Este campo es requerido");
+                    } else if(!validarContrasena(text)){
+                        Tclave.setError("La contraseña debe tener al menos una letra y al menos un número");
+                    }else if (!verificarContraseña(text2, text)==true) {
                         TverifiClave.setError("La contraseña no coincide");
                     }
                 }
             }
         });
-*/
+
+        TverifiClave.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (!hasFocus) {
+                    String text = Tclave.getText().toString().trim();
+                    String text2 = TverifiClave.getText().toString().trim();
+                    if (text2.isEmpty()) {
+                        TverifiClave.setError("Este campo es requerido");
+                    } else if (!verificarContraseña(text, text2)==true) {
+                        TverifiClave.setError("La contraseña no coincide");
+                    }
+                }
+            }
+        });
+
+        Tdireccion.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (!hasFocus) {
+                    String textdir = Tdireccion.getText().toString().trim();
+                    if (textdir.isEmpty()) {
+                        Tdireccion.setError("Este campo es requerido");
+                    } else if (!validarDireccion(textdir)) {
+                        Tdireccion.setError("Direccion no valida");
+                    }
+                }
+            }
+        });
+
+        Tnombre.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (!hasFocus) {
+                    String textnom = Tnombre.getText().toString().trim();
+                    if (textnom.isEmpty()) {
+                        Tnombre.setError("Este campo es requerido");
+                    } else if (!validarNombre(textnom)) {
+                        Tnombre.setError("Nombre no valido");
+                    }
+                }
+            }
+        });
+
         regis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,6 +165,7 @@ public class registro_main extends AppCompatActivity {
                 String nombre_usu = Tnombre.getText().toString();
                 String correo_usu = Tcorreo.getText().toString();
                 String clave_usu = Tclave.getText().toString();
+                String verclave_usu = TverifiClave.getText().toString();
                 String direccion_usu = Tdireccion.getText().toString();
                 String telefono_usu = Ttelefono.getText().toString();
 
@@ -130,7 +177,7 @@ public class registro_main extends AppCompatActivity {
 
                         progressDialog.dismiss();//Ocultar el resultado
 
-                        //if(validacionesAll(cedula_usu, nombre_usu, correo_usu, clave_usu, direccion_usu, telefono_usu)){
+                        if(validacionesAll(cedula_usu, nombre_usu, correo_usu, clave_usu, verclave_usu, direccion_usu, telefono_usu)){
                             if(Tterminos.isChecked()){
                                 try {
                                     enviarSolicitudRegistroUsuario(cedula_usu, nombre_usu, correo_usu, clave_usu, direccion_usu, telefono_usu);
@@ -143,9 +190,9 @@ public class registro_main extends AppCompatActivity {
                                 Tterminos.setTextColor(Color.RED);
                                 Toast.makeText(getApplicationContext(), "Los terminos y condiciones de la aplicacion no han sido aceptados", Toast.LENGTH_LONG).show();
                             }
-                        //} else {
-                          //  Toast.makeText(getApplicationContext(), "Compruebe si no hay errores en los campos", Toast.LENGTH_LONG).show();
-                        //}
+                        } else {
+                            //  Toast.makeText(getApplicationContext(), "Compruebe si no hay errores en los campos", Toast.LENGTH_LONG).show();
+                        }
                     }
                 }, 2300); // Simular un proceso que tarda 2.3 segundos
 
@@ -251,7 +298,7 @@ public class registro_main extends AppCompatActivity {
 
     }
 
-    private boolean validacionesAll(String identificacion, String nombre, String correo, String clave, String direccion, String telefono){
+    private boolean validacionesAll(String identificacion, String nombre, String correo, String clave, String vericlave, String direccion, String telefono){
         boolean EsValido = true;
 
         // Validación del correo electrónico
@@ -279,10 +326,10 @@ public class registro_main extends AppCompatActivity {
             EsValido = false;
         }
 
-        //Validacion de clave
-    /*    if (TextUtils.isEmpty(clave) || validarContrasena(clave) || clave == TverifiClave.getText().toString()) {
+        if (TextUtils.isEmpty(clave) || (TextUtils.isEmpty(vericlave)) || validarContrasena(clave)){
             EsValido = false;
-        }*/
+        }
+
         return EsValido;
     }
 
@@ -346,8 +393,8 @@ public class registro_main extends AppCompatActivity {
     }
 
     public static boolean validarNombre(String nombre) {
-        // Permitir letras mayúsculas y minúsculas, espacios, guiones y apóstrofes
-        String regex = "^[a-zA-Z\\s\\-\\']+$";
+        // Permitir letras mayúsculas y minúsculas y espacios
+        String regex = "[a-zA-Z ]+";
         return nombre.matches(regex);
     }
 
@@ -361,5 +408,10 @@ public class registro_main extends AppCompatActivity {
         // La contraseña debe tener al menos una letra y al menos un número
         String regex = "^(?=.*[A-Za-z])(?=.*\\d).+$";
         return contrasena.matches(regex);
+    }
+
+    public static boolean verificarContraseña(String ContraRepetida, String contra) {
+        // La contraseña debe tener al menos una letra y al menos un número        return (TverifiClave.getText().toString() == Tclave.getText().toString());
+        return contra.equals(ContraRepetida);
     }
 }
