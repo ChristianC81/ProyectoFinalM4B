@@ -269,7 +269,7 @@ public class registro_main extends AppCompatActivity {
 
     private void enviarSolicitudRegistroUsuario(String identificacion, String nombre, String correo, String clave, String direccion, String telefono) throws JSONException {
 
-        String url = "http://10.0.2.2:8080/api/usuarios";
+        String url = "http://25.43.143.100:8080/api/usuarios";
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("usu_identificacion", identificacion);

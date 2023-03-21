@@ -71,7 +71,7 @@ public class Inicio_Sesion extends AppCompatActivity {
     }
 
     private void obtenerDatos(){
-        String url="http://10.0.2.2:8080/api/usuarios";
+        String url="http://25.43.143.100:8080/api/usuarios";
         JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {

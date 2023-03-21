@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView listaproductos;
     List<producto> productos;
     Adapter adapter;
-    String JSON_URL = "http://10.0.2.2:8080/api/producto" ;
+    String JSON_URL = "http://25.43.143.100:8080/api/producto" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

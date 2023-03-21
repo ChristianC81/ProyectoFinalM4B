@@ -36,7 +36,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     private Context contexto;
     private Context mContext;
     private RequestQueue requestQueue;
-    String JSON_URL = "http://192.168.18.52:8080/api/productos";
+    String JSON_URL = "http://25.43.143.100:8080/api/productos";
     List<producto> productos;
     LayoutInflater inflater;
     List<producto> listaOriginal;

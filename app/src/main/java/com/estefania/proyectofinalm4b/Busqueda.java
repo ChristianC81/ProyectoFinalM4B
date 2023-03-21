@@ -41,7 +41,7 @@ public class Busqueda extends AppCompatActivity implements SearchView.OnQueryTex
     List<producto> productos;
     //List<producto> listaOriginal;
     Adapter adapter;
-    String JSON_URL = "http://10.0.2.2:8080/api/producto" ;
+    String JSON_URL = "http://25.43.143.100:8080/api/producto" ;
     SearchView txtbuscar;
 
 
